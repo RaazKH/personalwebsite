@@ -13,10 +13,12 @@ You should be able to see your website!
 
 ### Customizing the website
 Now we need to navigate to the folder where the website is located
->cd var/www$
+>cd /var/www/html/
+
 Lets see what is in this folder
 >ls
-You should see a website now
+You should see "index.html"
+This is the default website which we will be replacing with our own. The default website is included in this repository.
 
 ###### Stop apache
 >sudo /ect/init.d/apache2 stop
