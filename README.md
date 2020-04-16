@@ -18,7 +18,7 @@ Now we need to navigate to the folder where the website is located
 Lets see what is in this folder
 >ls
 You should see "index.html"
-This is the default website which we will be replacing with our own. The default website is included in this repository.
+This is the default website which we will be replacing with our own. The default website is included in this repository in the "Extras" directory.
 
 ###### Stop apache
 >sudo /ect/init.d/apache2 stop
