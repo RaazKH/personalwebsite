@@ -1,4 +1,4 @@
-Source: w3schools
+src: w3schools
 
 All HTML documents must start with a document type declaration: <!DOCTYPE html>.
 
@@ -41,3 +41,16 @@ Example
   <li>Tea</li>
   <li>Milk</li>
 </ol>
+
+
+- <br> is an empty element without a closing tag (the <br> tag defines a line break):
+Example
+<p>This is a <br> paragraph with a line break.</p>
+
+- Add this after the !DOCTYPE for screenreaders
+<html lang="en-US">
+
+
+- <pre> is like <p> but more closely matches the format of the text.
+
+- <tagname style="property:value;">
