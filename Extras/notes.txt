@@ -27,6 +27,13 @@ Example
 Example
 <button>Click me</button>
 
+
+   1. HTML to define the content of web pages
+
+   2. CSS to specify the layout of web pages
+
+   3. JavaScript to program the behavior of web pages
+
 - HTML Lists
 HTML lists are defined with the <ul> (unordered/bullet list) or the <ol> (ordered/numbered list) tag, followed by <li> tags (list items):
 Example
@@ -54,3 +61,6 @@ Example
 - <pre> is like <p> but more closely matches the format of the text.
 
 - <tagname style="property:value;">
+
+Horizontal list:
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml_lists_menu
