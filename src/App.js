@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [number, setNumber] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Random Number Generator</h1>
+      <h3>A number will be generated between 1 and the entered number. No Duplicates!</h3>
+      <input type="number" value={number} onInput={(e) => setNumber(e.target.value)} />
+      <p>{number}</p>
     </div>
   );
 }
