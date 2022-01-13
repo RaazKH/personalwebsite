@@ -1,8 +1,31 @@
-import './App.css';
 import { useState } from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+  text-align: center;
+`;
+
+const FlexContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
+
+const StyledInput = styled.input`
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+  height: 50%;
+  width: 20px;
+`;
+const StyledButton = styled.button`
+  height: 50%;
+  margin-left: 5px;
+`;
 
 function App() {
-  const [number, setNumber] = useState("10");
+  const [number, setNumber] = useState("1");
 
   const [display, setDisplay] = useState("1");
 
@@ -49,15 +72,17 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <Container>
       <h1>Random Number Generator</h1>
-      <h3>A number will be generated between 1 and the entered number. No Duplicates!</h3>
-      <input type="number" disabled={disabled} value={number} onInput={(e) => setNumber(e.target.value)} />
-      <button onClick={submit}>{disabled ? "Reset" : "Submit"}</button>
-      <p>Between 1 and {display}</p>
+      <h3>No Duplicates!</h3>
+      <FlexContainer>
+        <p>Between 1 and&nbsp;</p>
+        <StyledInput type="number" disabled={disabled} value={number} onInput={(e) => setNumber(e.target.value)} />
+        <StyledButton onClick={submit}>{disabled ? "Reset" : "Submit"}</StyledButton>
+      </FlexContainer>
       <button onClick={generate}>Generate!</button>
-      <h3>{randomNumber}</h3>
-    </div>
+      <h2>{randomNumber}</h2>
+    </Container>
   );
 }
 
