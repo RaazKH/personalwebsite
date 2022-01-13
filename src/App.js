@@ -80,6 +80,11 @@ const StyledSubmit = styled.button`
   padding: 6px 16px;
 `;
 
+const StyledHeading = styled.h1`
+  margin-top: 0;
+  padding-top: 3rem;
+`;
+
 function App() {
   const [number, setNumber] = useState("1");
 
@@ -135,7 +140,7 @@ function App() {
 
   return (
     <Container>
-      <h1 style={{ margintop: 0, padding: 48 }}>Random Number Generator</h1>
+      <StyledHeading>Random Number Generator</StyledHeading>
       <h3>No Duplicates!</h3>
       <FlexContainer>
         <p>Between 1 and&nbsp;</p>
