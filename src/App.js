@@ -36,7 +36,6 @@ const Container = styled.div`
 `;
 
 const FlexContainer = styled.div`
-  margin-top: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
