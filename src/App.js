@@ -6,6 +6,7 @@ const CommonButton = css`
   border: 0;
   border-radius: 8px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   box-sizing: border-box;
   color: #FFFFFF;
   font-family: Phantomsans, sans-serif;
@@ -48,22 +49,14 @@ const StyledInput = styled.input`
   -webkit-appearance: none;
   -moz-appearance: textfield;
   margin: 0;
-  width: 20px;
+  max-width: 30px;
 `;
 
 const StyledButton = styled.button`
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   ${CommonButton};
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-  min-width: 140px;
   margin-bottom: 50px;
   font-size: 24px;
-
-  :active, :hover {
-    outline: 0;
-  }
+  padding: 16px 24px;
 
   @media (min-width: 700px) {
     margin-left: auto;
@@ -71,45 +64,20 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledSpan = styled.span`
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
-  border-radius: 6px;
-  transition: 300ms;
-
-  :hover, :active{
-    background: none;
-  }
-`;
-
-const StyledSpans = styled.span`
-  background-color: rgb(5, 6, 45);
-  padding: 0.5px 20px;
-  border-radius: 6px;
-  transition: 300ms;
-
-  :hover, :active{
-    background: none;
-  }
-`;
-
-const StyledHeading = styled.h1`
-  margin-top: 0;
-  padding-top: 3rem;
-`;
-
 const StyledRandom = styled.h2`
   flex-grow: 1;
   font-size: 16px;
   font-size: 20vw;
+  @media (min-width: 700px) {
+    margin: 0px;
+  }
 `;
 
 const StyledSubmit = styled.button`
   margin: 20px;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   font-size: 20px;
   ${CommonButton};
-
+  padding: 6px 16px;
 `;
 
 function App() {
@@ -167,15 +135,16 @@ function App() {
 
   return (
     <Container>
-      <StyledHeading>Random Number Generator</StyledHeading>
+      <h1 style={{ margintop: 0, padding: 48 }}>Random Number Generator</h1>
       <h3>No Duplicates!</h3>
       <FlexContainer>
         <p>Between 1 and&nbsp;</p>
-        <StyledInput type="number" disabled={disabled} value={number} onInput={(e) => setNumber(e.target.value)} />
-        <StyledSubmit onClick={submit}><StyledSpans>{disabled ? "Reset" : "Submit"}</StyledSpans></StyledSubmit>
+        <StyledInput type="number" style={{ display: disabled ? "none" : "block" }} value={number} onInput={(e) => setNumber(e.target.value)} />
+        <p style={{ display: disabled ? "block" : "none" }}>{number}</p>
+        <StyledSubmit onClick={submit}>{disabled ? "Reset" : "Submit"}</StyledSubmit>
       </FlexContainer>
       <StyledRandom>{randomNumber}</StyledRandom>
-      <StyledButton onClick={generate} disabled={!disabled}><StyledSpan>{reset ? "Click Reset!" : disabled ? "Generate!" : "Click Submit!"}</StyledSpan></StyledButton>
+      <StyledButton onClick={generate} disabled={!disabled}>{reset ? "Click Reset!" : disabled ? "Generate!" : "Click Submit!"}</StyledButton>
     </Container>
   );
 }
