@@ -5,19 +5,18 @@ import styled, { css } from "styled-components";
 const CommonButton = css`
   border: 0;
   border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  box-shadow: rgba(0, 0, 0) 0 15px 30px -5px;
+  background: #590d14;
   box-sizing: border-box;
   color: #FFFFFF;
   font-family: Phantomsans, sans-serif;
   line-height: 1em;
-  padding: 3px;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  border-radius: 999px;
 `;
 
 const Container = styled.div`
@@ -26,13 +25,12 @@ const Container = styled.div`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: rgb(2,0,36);
-  background: linear-gradient(157deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(5,6,45,1) 100%); 
+  background: linear-gradient(157deg, #000000 0%, #3c090d 100%);
   color: white;
   height: 100%;
 
   display: flex;
   flex-direction: column;
-  padding: 10px;
 `;
 
 const FlexContainer = styled.div`
@@ -41,8 +39,9 @@ const FlexContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-family: Phantomsans, sans-serif;
-  font-size: 24px;
-  `;
+  font-size: 4vw;
+  height: 10vh;
+`;
 
 const StyledInput = styled.input`
   -webkit-appearance: none;
@@ -56,20 +55,16 @@ const StyledButton = styled.button`
   margin-bottom: 50px;
   font-size: 24px;
   padding: 16px 24px;
-
-  @media (min-width: 700px) {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  height: 10vh;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const StyledRandom = styled.h2`
   flex-grow: 1;
   font-size: 16px;
   font-size: 20vw;
-  @media (min-width: 700px) {
-    margin: 0px;
-  }
+  height: 50vh;
 `;
 
 const StyledSubmit = styled.button`
@@ -79,8 +74,9 @@ const StyledSubmit = styled.button`
   padding: 6px 16px;
 `;
 
-const StyledHeading = styled.h1`
-  margin-top: 0;
+const StyledHeading = styled.p`
+  height: 20vh;
+  font-size: 7vw;
   padding-top: 3rem;
 `;
 
@@ -96,7 +92,7 @@ function App() {
 
   const [numArray, setNumArray] = useState([]);
 
-  const indexOf = (i) => {
+  const indexOf = (i: number) => {
     var index = 0;
     while (index < numArray.length) {
       if (numArray[index] === i) {
@@ -127,10 +123,10 @@ function App() {
   const generate = () => {
     var found = false;
     while (!found && numArray.length > 0) {
-      var i = 1 + Math.floor(Math.random() * display);
-      if (indexOf(i) > -1) {
-        setRandomNumber(i);
-        setNumArray(numArray.filter(item => item !== i));
+      var index = 1 + Math.floor(Math.random() * display);
+      if (indexOf(index) > -1) {
+        setRandomNumber(index);
+        setNumArray(numArray.filter((item: number) => item !== index));
         found = true;
       }
     }
@@ -140,7 +136,6 @@ function App() {
   return (
     <Container>
       <StyledHeading>Random Number Generator</StyledHeading>
-      <h3>No Duplicates!</h3>
       <FlexContainer>
         <p>Between 1 and&nbsp;</p>
         <StyledInput type="number" style={{ display: disabled ? "none" : "block" }} value={number} onInput={(e) => setNumber(e.target.value)} />
